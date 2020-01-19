@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7d82020-9978-400f-848c-dad9df642173" name="Default Changelist" comment="" />
+    <list default="true" id="b7d82020-9978-400f-848c-dad9df642173" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/snakeSense.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/elija.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/elija.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config-HW" beforeDir="false" afterPath="$PROJECT_DIR$/Config-HW" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake4NN.py" beforeDir="false" afterPath="$PROJECT_DIR$/snake4NN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snakeVision.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeVision.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +22,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1WV2Di82KUod4Bgp9f4vmZq5Ms0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,7 +36,28 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.snakeSense">
+    <configuration name="SnakeNN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Snake" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SnakeNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="drawGrid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -38,27 +71,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drawGrid.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Snake" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/example.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,7 +121,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="snakeSense" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,7 +133,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/snakeSense.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.snakeSense" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.SnakeNN" />
         <item itemvalue="Python.drawGrid" />
         <item itemvalue="Python.snake" />
-        <item itemvalue="Python.testing" />
-        <item itemvalue="Python.example" />
       </list>
     </recent_temporary>
   </component>
@@ -170,46 +182,46 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="397" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1579391233266" />
-    <state width="1259" height="147" key="GridCell.Tab.0.bottom" timestamp="1579409117803">
+    <state width="629" height="204" key="GridCell.Tab.0.bottom" timestamp="1579463428176">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="147" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579409117803" />
-    <state width="1259" height="147" key="GridCell.Tab.0.center" timestamp="1579409117803">
+    <state width="629" height="204" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579463428176" />
+    <state width="629" height="204" key="GridCell.Tab.0.center" timestamp="1579463428176">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="147" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579409117803" />
-    <state width="1259" height="147" key="GridCell.Tab.0.left" timestamp="1579409117803">
+    <state width="629" height="204" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579463428176" />
+    <state width="629" height="204" key="GridCell.Tab.0.left" timestamp="1579463428176">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="147" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579409117803" />
-    <state width="1259" height="147" key="GridCell.Tab.0.right" timestamp="1579409117803">
+    <state width="629" height="204" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579463428176" />
+    <state width="629" height="204" key="GridCell.Tab.0.right" timestamp="1579463428176">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="147" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579409117803" />
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1579392573160">
+    <state width="629" height="204" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579463428176" />
+    <state width="629" height="204" key="GridCell.Tab.1.bottom" timestamp="1579463428180">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579392573160" />
-    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1579392573160">
+    <state width="629" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579463428180" />
+    <state width="629" height="204" key="GridCell.Tab.1.center" timestamp="1579463428180">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1579392573160" />
-    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1579392573160">
+    <state width="629" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1579463428180" />
+    <state width="629" height="204" key="GridCell.Tab.1.left" timestamp="1579463428180">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1579392573160" />
-    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1579392573160">
+    <state width="629" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1579463428180" />
+    <state width="629" height="204" key="GridCell.Tab.1.right" timestamp="1579463428180">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1579392573160" />
+    <state width="629" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1579463428180" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1579360997084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1579360997084" />
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1579260246398">
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1579446821069">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1579260246398" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1579446821069" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
