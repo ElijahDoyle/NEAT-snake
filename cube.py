@@ -1,12 +1,13 @@
 import pygame
 
 class Cube(object):
-    def __init__(self, pos, dirnx, dirny, sideLength, color):
+    def __init__(self, pos, dirnx, dirny, sideLength, color, layer=1):
         self.pos = pos
         self.dirnx = dirnx
         self.dirny = dirny
         self.sideLength = sideLength
         self.color = color
+        self.layer = layer
 
     def move(self, dirnx, dirny):
         self.dirnx = dirnx

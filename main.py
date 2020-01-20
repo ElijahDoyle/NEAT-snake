@@ -20,7 +20,7 @@ running = True
 while running:
 
     screen.fill((0, 0, 0))
-    drawGrid(rows, rows, width, height, width // rows, screen)
+    #drawGrid(rows, rows, width, height, width // rows, screen)
     if player.body[0].pos == snack.pos:
         player.addCube()
         snack = Cube(randomSnack(rows, player, width // rows), 0, 0, width // rows - 1, color=(255, 0, 0))

@@ -44,7 +44,6 @@ class snakeSenses():
 
         for i, slope in enumerate(self.VISION_8):
             currentPos = list(self.snake.head.pos)
-            print(str(i) + " : " + str(currentPos))
             snackDetected = False
             bodyDetected = False
             outsideOfWall = False
@@ -55,8 +54,6 @@ class snakeSenses():
 
                 currentPos[0] += intervalxDist
                 currentPos[1] += intervalyDist
-
-               # print(str(i) + " : " + str(currentPos))
                 if currentPos == self.snack.pos:
                     snackDetected = True
                     sdist = self.distanceBetween(currentPos, self.snack.pos)
@@ -77,7 +74,6 @@ class snakeSenses():
                     wallDist = self.distanceBetween(currentPos, self.snake.head.pos) // self.interval
                     self.distancesToWall.append(wallDist)
                     posOfWall = currentPos
-                   # print(str(i) + " : " + str(wallDist) + " , Pos: " + str(posOfWall))
                     self.wallPositions.append(posOfWall)
                     outsideOfWall = True
 
@@ -87,7 +83,8 @@ class snakeSenses():
             if not bodyDetected:
                 bdDist = 0
                 self.distancesToSnack.append(bdDist)
-        inputs = [self.distancesToWall, self.distancesToSelf, self.distancesToSnack]
+        inputs = self.distancesToWall + self.distancesToSelf + self.distancesToSnack
+        inputs = tuple(inputs)
         return inputs
 
     def drawVision(self):
@@ -107,4 +104,4 @@ class snakeSenses():
         for i, slope in enumerate(VISION_8):
             wallPos = self.wallPositions[i]
             wallPos = [wallPos[0] + self.interval // 2, wallPos[1] + self.interval // 2]
-            pygame.draw.line(self.surface, (0, 255, 155), headPosition, wallPos)
+            pygame.draw.line(self.surface, (0, 255, 255), headPosition, wallPos, 2)

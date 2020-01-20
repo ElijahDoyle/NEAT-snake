@@ -16,7 +16,7 @@ class Snake(object):
         self.body.append(self.head)
 
     def move(self, NNoutputs):
-
+        bestValue = NNoutputs.index(max(NNoutputs))
         currentpos = tuple(self.head.pos)
 
         if NNoutputs[0]:
@@ -24,7 +24,7 @@ class Snake(object):
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[1] :
+        elif NNoutputs[1]:
             self.dirnx = 1
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
