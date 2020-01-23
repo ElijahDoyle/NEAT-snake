@@ -25,7 +25,6 @@ def eval_genomes(genomes, config):
     width = 510
     height = 510
     shownSnake = 0
-    print("generation")
     #time for neat stuff
     nets = []
     ge = []
@@ -37,9 +36,9 @@ def eval_genomes(genomes, config):
         nets.append(net)
         ge.append(genome)
         snakeList.append(Snake([35, 35], (255, 255, 255), width // rows))
-    
+
     pygame.init()
-    fps = 10
+    fps = 40
     clock = pygame.time.Clock()
 
 
@@ -50,14 +49,19 @@ def eval_genomes(genomes, config):
     screen = pygame.display.set_mode((width, height))
 
     running = True
+    generationBirth = pygame.time.get_ticks()
     while running:
-
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                running = False
+        timefromBirth = pygame.time.get_ticks() - generationBirth
         screen.fill((0, 0, 0))
         #drawGrid(rows, rows, width, height, width // rows, screen)
         for i, snake in enumerate(snakeList):
 
             if snake.body[0].pos == snacks[i].pos:
-                ge[i].fitness += 5
+                ge[i].fitness += 10
                 snake.addCube()
                 newSnack = Cube(randomSnack(rows, snake, width // rows), 0, 0, width // rows - 1, color=(255, 0, 0), layer=i)
                 snacks[i] = newSnack
@@ -78,32 +82,41 @@ def eval_genomes(genomes, config):
                     nets.pop(i)
                     snakeList.pop(i)
                     snacks.pop(i)
+                    #print(str(i) + "has died")
                     break
             if snake.head.pos[0] < 0 or snake.head.pos[0] > width or snake.head.pos[1] < 0 or snake.head.pos[1] > width and not dead:
-                ge[i].fitness -= 5
+                ge[i].fitness -= 2
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
-            elif len(snake.body) < (pygame.time.get_ticks()/1000)/10:
-                ge[i].fitness -= 5
+               # print(str(i) + "has died")
+
+            elif len(snake.body) < (timefromBirth/1000)/4 and not dead:
+                ge[i].fitness -= 2
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
+                print(str(i) + "has died")
+                dead = True
             else:
-                #print(str(len(ge)))
-                ge[i].fitness += .1
+
+                ge[i].fitness += .05
+        bestSnake = 0
 
 
-        shownSnake = changeSnake(shownSnake)
         if len(snakeList) > 0:
-            snakeList[shownSnake].draw(screen)
-            snacks[shownSnake].draw(screen)
+            fitnessess = []
+            for genome in (ge):
+                fitnessess.append(genome.fitness)
+            bestSnake = fitnessess.index(max(fitnessess))
+            snakeList[bestSnake].draw(screen)
+            snacks[bestSnake].draw(screen)
         else:
             running = False
         pygame.display.update()
-        pygame.time.delay(50)
+        pygame.time.delay(5)
         clock.tick(fps)
 
 

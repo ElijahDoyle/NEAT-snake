@@ -2,8 +2,6 @@ import pygame
 from cube import Cube
 
 class Snake(object):
-    body = []
-    turns = {}
 
     def __init__(self, pos, color, sidelength):
         self.pos = list(pos)
@@ -14,27 +12,28 @@ class Snake(object):
         self.dirny = 0
         self.head = Cube(self.pos, self.dirnx, self.dirny, self.sidelength, self.color)
         self.body = [self.head]
+        self.turns = {}
 
     def move(self, NNoutputs):
         currentpos = tuple(self.head.pos)
 
         # left
-        if NNoutputs[0] == max(NNoutputs):
-            self.dirnx = -1
-            self.dirny = 0
-            self.turns[currentpos] = [self.dirnx, self.dirny]
-        # right
-        elif NNoutputs[1] == max(NNoutputs):
+        if NNoutputs[0] == max(NNoutputs) and self.dirnx != -1:
             self.dirnx = 1
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
+        # right
+        elif NNoutputs[1] == max(NNoutputs) and self.dirnx != 1:
+            self.dirnx = -1
+            self.dirny = 0
+            self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[2] == max(NNoutputs):
+        elif NNoutputs[2] == max(NNoutputs) and self.dirny != 1:
             self.dirnx = 0
             self.dirny = -1
             self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[3] == max(NNoutputs):
+        elif NNoutputs[3] == max(NNoutputs) and self.dirny != -1:
             self.dirnx = 0
             self.dirny = 1
             self.turns[currentpos] = [self.dirnx, self.dirny]
