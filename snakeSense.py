@@ -63,7 +63,7 @@ class snakeSenses():
                     if not bodyDetected:
                         if currentPos == bodyPiece.pos:
                             bodyDetected = True
-                            dist = self.distanceBetween(currentPos, self.snake.body.pos)
+                            dist = self.distanceBetween(currentPos, bodyPiece.pos)
                             dist = dist // self.interval
                             # puts the value between 0 & 1
                             self.distancesToSelf.append(dist)
@@ -83,7 +83,23 @@ class snakeSenses():
             if not bodyDetected:
                 bdDist = 0
                 self.distancesToSnack.append(bdDist)
-        inputs = self.distancesToWall + self.distancesToSelf + self.distancesToSnack
+        if self.snake.dirnx == 1:
+            right = 1
+        else:
+            right = 0
+        if self.snake.dirnx == -1:
+            left = 1
+        else:
+            left = 0
+        if self.snake.dirny == -1:
+            up = 1
+        else:
+            up = 0
+        if self.snake.dirnx == 1:
+            down = 1
+        else:
+            down = 0
+        inputs = self.distancesToWall + self.distancesToSelf + self.distancesToSnack + [right, left, up, down]
         inputs = tuple(inputs)
         return inputs
 

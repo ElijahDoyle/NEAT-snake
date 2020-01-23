@@ -4,8 +4,8 @@
     <list default="true" id="b7d82020-9978-400f-848c-dad9df642173" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SnakeNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeNN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cube.py" beforeDir="false" afterPath="$PROJECT_DIR$/cube.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/more testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/more testing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snake4NN.py" beforeDir="false" afterPath="$PROJECT_DIR$/snake4NN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snakeSense.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeSense.py" afterDir="false" />
     </list>
@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.SnakeNN">
     <configuration name="SnakeNN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -49,27 +49,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SnakeNN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="drawGrid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Snake" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drawGrid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="snake" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="more testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,7 +90,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/snake.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/more testing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="snake4NN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Snake" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/snake4NN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.snakeSense" />
         <item itemvalue="Python.SnakeNN" />
-        <item itemvalue="Python.drawGrid" />
-        <item itemvalue="Python.snake" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.more testing" />
+        <item itemvalue="Python.snake4NN" />
+        <item itemvalue="Python.snakeSense" />
       </list>
     </recent_temporary>
   </component>
@@ -177,50 +177,54 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="0" key="#Notifications" timestamp="1579635163502">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1579635163502" />
     <state x="397" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579391233266">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="397" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1579391233266" />
-    <state width="629" height="147" key="GridCell.Tab.0.bottom" timestamp="1579491414484">
+    <state width="629" height="139" key="GridCell.Tab.0.bottom" timestamp="1579742925294">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="147" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579491414484" />
-    <state width="629" height="147" key="GridCell.Tab.0.center" timestamp="1579491414484">
+    <state width="629" height="139" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579742925294" />
+    <state width="629" height="139" key="GridCell.Tab.0.center" timestamp="1579742925294">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="147" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579491414484" />
-    <state width="629" height="147" key="GridCell.Tab.0.left" timestamp="1579491414484">
+    <state width="629" height="139" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579742925294" />
+    <state width="629" height="139" key="GridCell.Tab.0.left" timestamp="1579742925294">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="147" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579491414484" />
-    <state width="629" height="147" key="GridCell.Tab.0.right" timestamp="1579491414484">
+    <state width="629" height="139" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579742925294" />
+    <state width="629" height="139" key="GridCell.Tab.0.right" timestamp="1579742925294">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="147" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579491414484" />
-    <state width="629" height="204" key="GridCell.Tab.1.bottom" timestamp="1579470321672">
+    <state width="629" height="139" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579742925294" />
+    <state width="629" height="204" key="GridCell.Tab.1.bottom" timestamp="1579559642537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579470321672" />
-    <state width="629" height="204" key="GridCell.Tab.1.center" timestamp="1579470321672">
+    <state width="629" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579559642537" />
+    <state width="629" height="204" key="GridCell.Tab.1.center" timestamp="1579559642537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1579470321672" />
-    <state width="629" height="204" key="GridCell.Tab.1.left" timestamp="1579470321672">
+    <state width="629" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1579559642537" />
+    <state width="629" height="204" key="GridCell.Tab.1.left" timestamp="1579559642537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1579470321672" />
-    <state width="629" height="204" key="GridCell.Tab.1.right" timestamp="1579470321672">
+    <state width="629" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1579559642537" />
+    <state width="629" height="204" key="GridCell.Tab.1.right" timestamp="1579559642537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1579470321672" />
+    <state width="629" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1579559642537" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1579360997084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1579360997084" />
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1579446821069">
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1579695862595">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1579446821069" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1579695862595" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

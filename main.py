@@ -28,8 +28,9 @@ while running:
     player.move()
     player.draw(screen)
     senses.snakeVision()
-    senses.drawVision()
+    #senses.drawVision()
     pygame.display.update()
+    print(len(player.body))
     for x in range(len(player.body)):
         if player.body[x].pos in list(map(lambda z: z.pos, player.body[x + 1:])):
             print('Score: ', len(player.body))
@@ -38,6 +39,7 @@ while running:
             break
     if player.head.pos[0] < 0 or player.head.pos[0] > width or player.head.pos[1] < 0 or player.head.pos[1] > width:
         pygame.time.delay(1000)
+        print('Score: ', len(player.body))
         player.reset((1, 1))
     pygame.time.delay(50)
     clock.tick(fps)

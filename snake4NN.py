@@ -13,28 +13,28 @@ class Snake(object):
         self.dirnx = 1
         self.dirny = 0
         self.head = Cube(self.pos, self.dirnx, self.dirny, self.sidelength, self.color)
-        self.body.append(self.head)
+        self.body = [self.head]
 
     def move(self, NNoutputs):
-        bestValue = NNoutputs.index(max(NNoutputs))
         currentpos = tuple(self.head.pos)
 
-        if NNoutputs[0]:
+        # left
+        if NNoutputs[0] == max(NNoutputs):
             self.dirnx = -1
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
-
-        elif NNoutputs[1]:
+        # right
+        elif NNoutputs[1] == max(NNoutputs):
             self.dirnx = 1
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[2]:
+        elif NNoutputs[2] == max(NNoutputs):
             self.dirnx = 0
             self.dirny = -1
             self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[3]:
+        elif NNoutputs[3] == max(NNoutputs):
             self.dirnx = 0
             self.dirny = 1
             self.turns[currentpos] = [self.dirnx, self.dirny]
@@ -53,14 +53,6 @@ class Snake(object):
         for cube in self.body:
             cube.draw(surface)
 
-    def reset(self, pos):
-        self.turns = {}
-        self.color = (255,255,255)
-        self.dirnx = 1
-        self.dirny = 0
-        self.head = Cube(pos, self.dirnx, self.dirny, self.sidelength, self.color)
-        self.body = []
-        self.body.append(self.head)
 
     def addCube(self):
         tail = self.body[-1]
