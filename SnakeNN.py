@@ -38,7 +38,7 @@ def eval_genomes(genomes, config):
         snakeList.append(Snake([35, 35], (255, 255, 255), width // rows))
 
     pygame.init()
-    fps = 20
+    fps = 35
     clock = pygame.time.Clock()
 
 
@@ -93,7 +93,7 @@ def eval_genomes(genomes, config):
                # print(str(i) + "has died")
 
             elif len(snake.body) < (timefromBirth/1000)/7 and not dead:
-                ge[i].fitness -= 3
+                ge[i].fitness -= 2
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
@@ -101,7 +101,7 @@ def eval_genomes(genomes, config):
                 dead = True
             else:
 
-                ge[i].fitness += .01
+                ge[i].fitness += .001
         bestSnake = 0
 
 

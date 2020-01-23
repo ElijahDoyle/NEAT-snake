@@ -57,20 +57,18 @@ class snakeSenses():
 
                 if currentPos == list(self.snack.pos):
                     snackDetected = True
-                    print("snack!!")
-                    sdist = self.distanceBetween(currentPos, self.snack.pos)
+                    sdist = self.distanceBetween(self.snake.head.pos, self.snack.pos)
                     sdist = sdist // self.interval
                     self.distancesToSnack.append(sdist)
                 for bodyPiece in self.snake.body:
                     if not bodyDetected:
                         if currentPos == list(bodyPiece.pos):
                             bodyDetected = True
-                            dist = self.distanceBetween(currentPos, bodyPiece.pos)
+                            dist = self.distanceBetween(self.snake.head.pos, bodyPiece.pos)
                             dist = dist // self.interval
                             # puts the value between 0 & 1
                             self.distancesToSelf.append(dist)
                             bodyDetected = True
-                            print("bodyPiece")
 
                 if currentPos[0] < 0 or currentPos[0] > self.width or currentPos[1] < 0 or currentPos[1] > self.width:
                     wallDist = self.distanceBetween(currentPos, self.snake.head.pos) // self.interval
@@ -103,7 +101,7 @@ class snakeSenses():
             down = 0
         inputs = self.distancesToWall + self.distancesToSelf + self.distancesToSnack
         inputs = tuple(inputs)
-
+        print(self.distancesToSnack)
         return inputs
 
     def drawVision(self):
