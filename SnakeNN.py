@@ -38,7 +38,7 @@ def eval_genomes(genomes, config):
         snakeList.append(Snake([35, 35], (255, 255, 255), width // rows))
 
     pygame.init()
-    fps = 40
+    fps = 20
     clock = pygame.time.Clock()
 
 
@@ -61,7 +61,7 @@ def eval_genomes(genomes, config):
         for i, snake in enumerate(snakeList):
 
             if snake.body[0].pos == snacks[i].pos:
-                ge[i].fitness += 10
+                ge[i].fitness += 5
                 snake.addCube()
                 newSnack = Cube(randomSnack(rows, snake, width // rows), 0, 0, width // rows - 1, color=(255, 0, 0), layer=i)
                 snacks[i] = newSnack
@@ -92,17 +92,16 @@ def eval_genomes(genomes, config):
                 snacks.pop(i)
                # print(str(i) + "has died")
 
-            elif len(snake.body) < (timefromBirth/1000)/4 and not dead:
-                ge[i].fitness -= 2
+            elif len(snake.body) < (timefromBirth/1000)/7 and not dead:
+                ge[i].fitness -= 3
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
-                print(str(i) + "has died")
                 dead = True
             else:
 
-                ge[i].fitness += .05
+                ge[i].fitness += .01
         bestSnake = 0
 
 
@@ -113,6 +112,8 @@ def eval_genomes(genomes, config):
             bestSnake = fitnessess.index(max(fitnessess))
             snakeList[bestSnake].draw(screen)
             snacks[bestSnake].draw(screen)
+            bestVision = snakeSenses(snakeList[bestSnake], snacks[bestSnake], width, width // rows, screen)
+            bestVision.snakeVision()
         else:
             running = False
         pygame.display.update()
@@ -128,7 +129,7 @@ def run(config_path):
     stats = neat.StatisticsReporter()
     popu.add_reporter(stats)
     popu.add_reporter(neat.StdOutReporter(True))
-    winner = popu.run(eval_genomes, 50)
+    winner = popu.run(eval_genomes, 100)
 
 if __name__ == '__main__':
     local_dir = os.path.dirname(__file__)
