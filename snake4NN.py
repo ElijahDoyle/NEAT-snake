@@ -13,10 +13,14 @@ class Snake(object):
         self.head = Cube(self.pos, self.dirnx, self.dirny, self.sidelength, self.color)
         self.body = [self.head]
         self.turns = {}
+        self.numberOfTurns = 50
+        self.initialSnackDistance = -1
+        #self.body.append(
+            #Cube((self.pos[0] - self.interval, self.pos[1]), self.dirnx, self.dirny, self.sidelength, self.color))
 
     def move(self, NNoutputs):
         currentpos = tuple(self.head.pos)
-
+        self.numberOfTurns-=1
         # left
         if NNoutputs[0] == max(NNoutputs) and self.dirnx != -1:
             self.dirnx = 1

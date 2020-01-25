@@ -10,11 +10,11 @@ class Snake(object):
         self.color = color
         self.interval = sidelength
         self.sidelength = sidelength
-        self.dirnx = 0 # should be 1
+        self.dirnx = 1 # should be 1
         self.dirny = 0
         self.head = Cube(self.pos, self.dirnx, self.dirny, self.sidelength, self.color)
         self.body.append(self.head)
-
+        self.body.append(Cube((self.pos[0] - self.interval, self.pos[1]), self.dirnx, self.dirny, self.sidelength, self.color))
 
     def move(self):
         for event in pygame.event.get():

@@ -8,12 +8,16 @@ class Slope(object):
         self.run = run
 
 class snakeSenses():
-    def __init__(self, snake, snack, width, interval, surface):
+    def __init__(self, snake, snack, width, interval, surface, rows):
         self.snake = snake
         self.snack = snack
         self.width = width
         self.interval = interval
         self.surface = surface
+        self.color = (0, 0, 255)
+        self.snackColor = (0,255,100)
+        self.snackInSight = False
+        self.rows = rows
         self.VISION_8 = (
             #   0 up             1 diagRightUp
             Slope(0, -1), Slope(1, -1),
@@ -41,6 +45,7 @@ class snakeSenses():
         self.distancesToSnack = []  # if the value is 0, then it has not been detected
         self.distancesToSelf = []  # if the value is 0 then it has not been detected
         self.wallPositions = []
+        self.snackDirection = 9
 
         for i, slope in enumerate(self.VISION_8):
             currentPos = list(self.snake.head.pos)
@@ -57,21 +62,27 @@ class snakeSenses():
 
                 if currentPos == list(self.snack.pos):
                     snackDetected = True
+                    self.snackInSight = True
                     sdist = self.distanceBetween(self.snake.head.pos, self.snack.pos)
-                    sdist = sdist // self.interval
+                    sdist = sdist / self.interval
+                    sdist = sdist/(self.rows - 2)
                     self.distancesToSnack.append(sdist)
+
+
                 for bodyPiece in self.snake.body:
                     if not bodyDetected:
                         if currentPos == list(bodyPiece.pos):
                             bodyDetected = True
                             dist = self.distanceBetween(self.snake.head.pos, bodyPiece.pos)
-                            dist = dist // self.interval
+                            dist = dist / self.interval
                             # puts the value between 0 & 1
+                            dist = dist/(self.rows - 1)
                             self.distancesToSelf.append(dist)
                             bodyDetected = True
 
                 if currentPos[0] < 0 or currentPos[0] > self.width or currentPos[1] < 0 or currentPos[1] > self.width:
-                    wallDist = self.distanceBetween(currentPos, self.snake.head.pos) // self.interval
+                    wallDist = self.distanceBetween(currentPos, self.snake.head.pos) / self.interval
+                    wallDist = wallDist/ (self.rows - 1)
                     self.distancesToWall.append(wallDist)
                     posOfWall = currentPos
                     self.wallPositions.append(posOfWall)
@@ -95,13 +106,12 @@ class snakeSenses():
             up = 1
         else:
             up = 0
-        if self.snake.dirnx == 1:
+        if self.snake.dirny == 1:
             down = 1
         else:
             down = 0
-        inputs = self.distancesToWall + self.distancesToSelf + self.distancesToSnack
+        inputs = self.distancesToWall + self.distancesToSelf + self.distancesToSnack + [left, right, up, down]
         inputs = tuple(inputs)
-        print(self.distancesToSnack)
         return inputs
 
     def drawVision(self):
@@ -118,7 +128,20 @@ class snakeSenses():
 
         headPosition = [self.snake.head.pos[0] + self.interval // 2, self.snake.head.pos[1] + self.interval // 2]
 
+        allZero = True
+        for i, dist in enumerate(self.distancesToSnack):
+            if dist != 0:
+                self.snackDirection = i
+                allZero = False
+
+        if allZero:
+            self.snackInSight = False
+
         for i, slope in enumerate(VISION_8):
             wallPos = self.wallPositions[i]
             wallPos = [wallPos[0] + self.interval // 2, wallPos[1] + self.interval // 2]
-            pygame.draw.line(self.surface, (0, 255, 255), headPosition, wallPos, 2)
+            if i == self.snackDirection and self.snackInSight:
+
+                pygame.draw.line(self.surface, self.snackColor, headPosition, wallPos, 2)
+            else:
+                pygame.draw.line(self.surface, self.color, headPosition, wallPos, 2)
