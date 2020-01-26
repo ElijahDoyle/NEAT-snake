@@ -6,7 +6,7 @@ from drawGrid import drawGrid
 from snakeSense import *
 
 pygame.init()
-fps = 10
+fps = 5
 clock = pygame.time.Clock()
 rows = 10
 width = 500
@@ -28,18 +28,27 @@ while running:
     player.move()
     player.draw(screen)
     senses = snakeSenses(player, snack, width, width // rows, screen, rows)
-    print(senses.snakeVision())
     #senses.drawVision()
-    pygame.display.update()
-    for x in range(len(player.body)):
+
+
+    '''for x in range(len(player.body)):
         if player.body[x].pos in list(map(lambda z: z.pos, player.body[x + 1:])):
             print('Score: ', len(player.body))
             pygame.time.delay(1000)
             player.reset((1, 1))
-            break
+            break'''
+
+    if player.colliding:
+        pygame.time.delay(1000)
+        print('Score: ', len(player.body))
+        player.reset((1, 1))
+        player.colliding = False
+
     if player.head.pos[0] < 0 or player.head.pos[0] > width or player.head.pos[1] < 0 or player.head.pos[1] > width:
         pygame.time.delay(1000)
         print('Score: ', len(player.body))
         player.reset((1, 1))
-    pygame.time.delay(50)
+
+    pygame.display.update()
+    pygame.time.delay(100)
     clock.tick(fps)

@@ -22,22 +22,22 @@ class Snake(object):
         currentpos = tuple(self.head.pos)
         self.numberOfTurns-=1
         # left
-        if NNoutputs[0] == max(NNoutputs) and self.dirnx != -1:
+        if NNoutputs[0] == max(NNoutputs):
             self.dirnx = 1
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
         # right
-        elif NNoutputs[1] == max(NNoutputs) and self.dirnx != 1:
+        elif NNoutputs[1] == max(NNoutputs):
             self.dirnx = -1
             self.dirny = 0
             self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[2] == max(NNoutputs) and self.dirny != 1:
+        elif NNoutputs[2] == max(NNoutputs):
             self.dirnx = 0
             self.dirny = -1
             self.turns[currentpos] = [self.dirnx, self.dirny]
 
-        elif NNoutputs[3] == max(NNoutputs) and self.dirny != -1:
+        elif NNoutputs[3] == max(NNoutputs):
             self.dirnx = 0
             self.dirny = 1
             self.turns[currentpos] = [self.dirnx, self.dirny]

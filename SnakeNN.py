@@ -38,8 +38,8 @@ def eval_genomes(genomes, config):
         snakeList.append(Snake([201, 201], (255, 255, 255), width // rows))
 
     pygame.init()
-    fps = 15
-    delayTime = 20
+    fps = 5
+    delayTime = 100
     clock = pygame.time.Clock()
 
 
@@ -99,14 +99,13 @@ def eval_genomes(genomes, config):
 
             dead = False
             for x in range(len(snake.body)):
-                if snake.body[x].pos in list(map(lambda z: z.pos, snake.body[x + 1:])) and not dead:
-                    dead = True
+                if snake.body[x].pos in list(map(lambda z: z.pos, snake.body[x + 1:])):
                     ge[i].fitness -= 1
                     ge.pop(i)
                     nets.pop(i)
                     snakeList.pop(i)
                     snacks.pop(i)
-                    #print(str(i) + "has died")
+                    print(str(i) + "has died")
                     break
 
             if snake.head.pos[0] < 0 or snake.head.pos[0] > width or snake.head.pos[1] < 0 or snake.head.pos[1] > width and not dead:
@@ -160,5 +159,5 @@ def run(config_path):
 
 if __name__ == '__main__':
     local_dir = os.path.dirname(__file__)
-    configu_path = os.path.join(local_dir, 'Config-HW')
+    configu_path = os.path.join(local_dir, 'SnakeNN-Config')
     run(configu_path)

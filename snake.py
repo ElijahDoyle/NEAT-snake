@@ -14,7 +14,7 @@ class Snake(object):
         self.dirny = 0
         self.head = Cube(self.pos, self.dirnx, self.dirny, self.sidelength, self.color)
         self.body.append(self.head)
-        self.body.append(Cube((self.pos[0] - self.interval, self.pos[1]), self.dirnx, self.dirny, self.sidelength, self.color))
+        self.colliding = False
 
     def move(self):
         for event in pygame.event.get():
@@ -52,7 +52,9 @@ class Snake(object):
 
         for i, c in enumerate(self.body):
             p = tuple(c.pos)
-            if p in self.turns:
+            if (self.body[0].pos[0], self.body[0].pos[1]) == p and i != 0:
+                self.colliding = True
+            elif p in self.turns:
                 turn = self.turns[p]
                 c.move(turn[0], turn[1]) # turn[0] and turn[0] act as dirnx and dirny and the interval is how mch it will move
                 if i == len(self.body) - 1:  # if its the last cube, it removes the turn from the dictionary
