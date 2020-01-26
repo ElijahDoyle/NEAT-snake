@@ -5,6 +5,12 @@ from randomSnack import randomSnack
 import neat
 import os
 
+
+def distanceBetween( pos1, pos2):
+    dist = math.sqrt((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2)
+    return dist
+
+
 class Snake(object):
 
     def __init__(self, pos, color, sidelength):
@@ -129,9 +135,9 @@ class snakeSenses():
         return (rightSafe, leftSafe, upSafe, downSafe, normalizedAngle)
 
 def eval_genomes(genomes, config):
-    rows = 10
-    width = 500
-    height = 500
+    rows = 15
+    width = 510
+    height = 510
     shownSnake = 0
     #time for neat stuff
     nets = []
@@ -143,11 +149,11 @@ def eval_genomes(genomes, config):
         net = neat.nn.FeedForwardNetwork.create(genome, config)
         nets.append(net)
         ge.append(genome)
-        snakeList.append(Snake([201, 201], (255, 255, 255), width // rows))
+        snakeList.append(Snake([35, 35], (255, 255, 255), width // rows))
 
     pygame.init()
-    fps = 15
-    delayTime = 100
+    fps = 25
+    delayTime = 75
     clock = pygame.time.Clock()
 
 
@@ -170,7 +176,7 @@ def eval_genomes(genomes, config):
         for i, snake in enumerate(snakeList):
 
             if snake.body[0].pos == snacks[i].pos:
-                ge[i].fitness += 7
+                ge[i].fitness += 15
                 #ge[i].fitness -= 1/snake.numberOfTurns
                 snake.addCube()
                 newSnack = Cube(randomSnack(rows, snake, width // rows), 0, 0, width // rows - 1, color=(255, 0, 0), layer=i)
@@ -182,7 +188,16 @@ def eval_genomes(genomes, config):
             snakeInputs = snakeSenses(snake, snacks[i], width, width // rows, screen, rows)
             inputs = snakeInputs.see()
             outputs = nets[i].activate(inputs)
+            distFromSnack = distanceBetween(snacks[i].pos, snake.body[0].pos)
             snake.move(outputs)
+            newDistFromSnack = distanceBetween(snacks[i].pos, snake.body[0].pos)
+
+            if distFromSnack - newDistFromSnack > 0:
+                ge[i].fitness += .6
+
+            else:
+                ge[i].fitness -= .7
+
 
             if snake.colliding:
                 ge[i].fitness -= 1
@@ -192,29 +207,39 @@ def eval_genomes(genomes, config):
                 snacks.pop(i)
 
             elif snake.head.pos[0] < 0 or snake.head.pos[0] > width or snake.head.pos[1] < 0 or snake.head.pos[1] > width:
-                ge[i].fitness -= 1
+                ge[i].fitness -= 2
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
 
             elif snake.numberOfTurns <= 0:
-                ge[i].fitness -= -2
+                ge[i].fitness -= -1
+                ge.pop(i)
+                nets.pop(i)
+                snakeList.pop(i)
+                snacks.pop(i)
+            elif ge[i].fitness < 0:
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
             else:
-                ge[i].fitness += 0.1
+                ge[i].fitness += 0.01
 
 
         if len(snakeList) > 0:
+            '''bodyLengths = []
+            for snake in snakeList:
+                bodyLengths.append(len(snake.body))
+            bestSnake = bodyLengths.index(max(bodyLengths))'''
             fitnessess = []
             for genome in (ge):
                 fitnessess.append(genome.fitness)
             bestSnake = fitnessess.index(max(fitnessess))
             snacks[bestSnake].draw(screen)
             snakeList[bestSnake].draw(screen)
+
 
         else:
             running = False
