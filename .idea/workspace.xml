@@ -4,6 +4,7 @@
     <list default="true" id="b7d82020-9978-400f-848c-dad9df642173" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleSnake.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleSnake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeNN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simpleSnake-Config" beforeDir="false" afterPath="$PROJECT_DIR$/simpleSnake-Config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,9 +142,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.SimpleSnake" />
+        <item itemvalue="Python.SnakeNN" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.snake" />
-        <item itemvalue="Python.SnakeNN" />
         <item itemvalue="Python.visualize" />
       </list>
     </recent_temporary>
@@ -182,22 +183,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="397" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1579997251872" />
-    <state width="629" height="170" key="GridCell.Tab.0.bottom" timestamp="1580012341468">
+    <state width="629" height="170" key="GridCell.Tab.0.bottom" timestamp="1580053943661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="170" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580012341468" />
-    <state width="629" height="170" key="GridCell.Tab.0.center" timestamp="1580012341468">
+    <state width="629" height="170" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580053943661" />
+    <state width="629" height="170" key="GridCell.Tab.0.center" timestamp="1580053943661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="170" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1580012341468" />
-    <state width="629" height="170" key="GridCell.Tab.0.left" timestamp="1580012341468">
+    <state width="629" height="170" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1580053943661" />
+    <state width="629" height="170" key="GridCell.Tab.0.left" timestamp="1580053943661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="170" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1580012341468" />
-    <state width="629" height="170" key="GridCell.Tab.0.right" timestamp="1580012341468">
+    <state width="629" height="170" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1580053943661" />
+    <state width="629" height="170" key="GridCell.Tab.0.right" timestamp="1580053943661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="170" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1580012341468" />
+    <state width="629" height="170" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1580053943661" />
     <state width="629" height="204" key="GridCell.Tab.1.bottom" timestamp="1579753202617">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -229,6 +230,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SimpleSnake.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

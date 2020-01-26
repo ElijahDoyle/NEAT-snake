@@ -24,15 +24,14 @@ class Snake(object):
         self.body = [self.head]
         self.body.append(Cube((self.pos[0] - self.interval, self.pos[1]), self.dirnx, self.dirny, self.sidelength, self.color))
         self.turns = {}
-        self.numberOfTurns = 50
-        self.initialSnackDistance = -1
+        self.movesLeft = 60
         self.colliding = False
         #self.body.append(
             #Cube((self.pos[0] - self.interval, self.pos[1]), self.dirnx, self.dirny, self.sidelength, self.color))
 
     def move(self, NNoutputs):
         currentpos = tuple(self.head.pos)
-        self.numberOfTurns -= 1
+        self.movesLeft -= 1
         # left
         if NNoutputs[0] == max(NNoutputs):
             self.dirnx = 1
@@ -103,36 +102,50 @@ class snakeSenses():
         return dist
 
     def see(self):
-        upSafe = 0
-        downSafe = 0
-        leftSafe = 0
-        rightSafe = 0
+        upSafe = 1
+        downSafe = 1
+        leftSafe = 1
+        rightSafe = 1
+        snackUp = 0
+        snackDown = 0
+        snackLeft = 0
+        snackRight = 0
         currentPos = self.snake.head.pos
-        xDiff = currentPos[0] - self.snack.pos[0]
+        #print("front: " + str(self.snake.body[0].pos), ",  head: " + str(self.snake.head.pos))
+        '''xDiff = currentPos[0] - self.snack.pos[0]
         yDiff = currentPos[1] - self.snack.pos[1]
         snackAngle = math.atan2(yDiff,xDiff)
-        normalizedAngle = (snackAngle - 0) * (1 - 0) / (2 * math.pi)
+        normalizedAngle = (snackAngle - 0) * (1 - 0) / (2 * math.pi)'''
+
+        if self.snack.pos[0] > currentPos[0]:
+            snackRight = 1
+        elif self.snack.pos[0] < currentPos[0]:
+            snackLeft = 1
+        if self.snack.pos[1] > currentPos[1]:
+            snackDown = 1
+        elif self.snack.pos[1] < currentPos[1]:
+            snackUp = 1
 
         for i, c in enumerate(self.snake.body):
             p = tuple(c.pos)
-            if currentPos[0] + self.interval == p:
-                rightSafe = 1
-            if currentPos[0] - self.interval == p:
-                leftSafe = 1
-            if currentPos[1] + self.interval == p:
-                downSafe = 1
-            if currentPos[1] - self.interval == p:
-                upSafe = 1
+            if currentPos[0] + self.interval == p[0]:
+                rightSafe = 0
+            if currentPos[0] - self.interval == p[0]:
+                leftSafe = 0
+            if currentPos[1] + self.interval == p[1]:
+                downSafe = 0
+            if currentPos[1] - self.interval == p[1]:
+                upSafe = 0
 
         if currentPos[0] + self.interval > self.width:
-            rightSafe = 1
+            rightSafe = 0
         if currentPos[0] - self.interval < 0:
-            leftSafe = 1
+            leftSafe = 0
         if currentPos[1] + self.interval > self.width:
-            downSafe = 1
+            downSafe = 0
         if currentPos[1] - self.interval < 0:
-            upSafe = 1
-        return (rightSafe, leftSafe, upSafe, downSafe, normalizedAngle)
+            upSafe = 0
+        return (rightSafe, leftSafe, upSafe, downSafe, snackRight, snackLeft, snackUp, snackDown)
 
 def eval_genomes(genomes, config):
     rows = 15
@@ -152,8 +165,8 @@ def eval_genomes(genomes, config):
         snakeList.append(Snake([35, 35], (255, 255, 255), width // rows))
 
     pygame.init()
-    fps = 25
-    delayTime = 75
+    fps = 20
+    delayTime = 20
     clock = pygame.time.Clock()
 
 
@@ -177,11 +190,11 @@ def eval_genomes(genomes, config):
 
             if snake.body[0].pos == snacks[i].pos:
                 ge[i].fitness += 15
+                snake.movesLeft += 60
                 #ge[i].fitness -= 1/snake.numberOfTurns
                 snake.addCube()
                 newSnack = Cube(randomSnack(rows, snake, width // rows), 0, 0, width // rows - 1, color=(255, 0, 0), layer=i)
                 snacks[i] = newSnack
-                snake.numberOfTurns += 55
             if snack.layer == 1:
                 snack.draw(screen)
 
@@ -193,39 +206,40 @@ def eval_genomes(genomes, config):
             newDistFromSnack = distanceBetween(snacks[i].pos, snake.body[0].pos)
 
             if distFromSnack - newDistFromSnack > 0:
-                ge[i].fitness += .6
+                ge[i].fitness += .5
 
             else:
-                ge[i].fitness -= .7
+                ge[i].fitness -= .6
 
 
             if snake.colliding:
-                ge[i].fitness -= 1
+                ge[i].fitness -= 0
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
 
             elif snake.head.pos[0] < 0 or snake.head.pos[0] > width or snake.head.pos[1] < 0 or snake.head.pos[1] > width:
-                ge[i].fitness -= 2
+                ge[i].fitness -= 0
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
 
-            elif snake.numberOfTurns <= 0:
-                ge[i].fitness -= -1
-                ge.pop(i)
-                nets.pop(i)
-                snakeList.pop(i)
-                snacks.pop(i)
             elif ge[i].fitness < 0:
                 ge.pop(i)
                 nets.pop(i)
                 snakeList.pop(i)
                 snacks.pop(i)
+            elif snake.movesLeft <= 0:
+                ge.pop(i)
+                nets.pop(i)
+                snakeList.pop(i)
+                snacks.pop(i)
             else:
-                ge[i].fitness += 0.01
+                pass
+                #ge[i].fitness += 0.01
+
 
 
         if len(snakeList) > 0:
@@ -239,6 +253,7 @@ def eval_genomes(genomes, config):
             bestSnake = fitnessess.index(max(fitnessess))
             snacks[bestSnake].draw(screen)
             snakeList[bestSnake].draw(screen)
+            sight = snakeSenses(snakeList[bestSnake], snacks[bestSnake], width, width // rows, screen, rows)
 
 
         else:
@@ -255,7 +270,7 @@ def run(config_path):
     stats = neat.StatisticsReporter()
     popu.add_reporter(stats)
     popu.add_reporter(neat.StdOutReporter(True))
-    winner = popu.run(eval_genomes, 100)
+    winner = popu.run(eval_genomes, 200)
 
 if __name__ == '__main__':
     local_dir = os.path.dirname(__file__)

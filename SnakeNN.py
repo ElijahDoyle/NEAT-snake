@@ -38,8 +38,8 @@ def eval_genomes(genomes, config):
         snakeList.append(Snake([201, 201], (255, 255, 255), width // rows))
 
     pygame.init()
-    fps = 5
-    delayTime = 100
+    fps = 20
+    delayTime = 20
     clock = pygame.time.Clock()
 
 
